@@ -1,14 +1,16 @@
 import express, { Request, Response } from "express";
 import serverlessHttp from "serverless-http";
 import bodyParser from "body-parser";
+import { generateEmail } from "./services/email";
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (_req: Request, res: Response) => {
-  res.status(200).json({ message: "Serverless API is UP" });
+app.get("/", async (_req: Request, res: Response) => {
+  await generateEmail();
+  res.status(200).json({ message: "Email Sent..." });
 });
 
 module.exports.handler = serverlessHttp(app);
