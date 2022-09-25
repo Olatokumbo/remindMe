@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
 });
 
 const convertedList = (list: string[]) => {
-  var arrayItems = "";
-  var n;
+  let arrayItems = "";
+  let n;
   for (n in list) {
     arrayItems += "<li>" + list[n] + "</li>";
   }
