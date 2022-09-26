@@ -36,7 +36,6 @@ export const generateEmail = async (tasks: string[]) => {
         console.log(error);
       } else {
         console.log("Email sent: " + info.response);
-        // do something useful
       }
     }
   );
